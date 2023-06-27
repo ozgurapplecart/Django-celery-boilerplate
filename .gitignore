@@ -1,0 +1,7 @@
+db.sqlite3
+**/venv/**
+**/__pycache__/**
+**/*.pyc/**
+**/*.pid/**
+**/*.idea/**
+**/djangoproject/__pycache__/**

@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "django-celery-boilerplate"
+version = "0.1.0"
+description = ""
+authors = ["ozgurgundogan <ozgur@applecart.co>"]
+readme = "README.md"
+packages = [{include = "Django_celery_boilerplate"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = ">=2.0,<3.0"
+psycopg2-binary = "^2.9.6"
+celery = "4.4.2"
+redis = "^4.6.0"
+flower = "0.9.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

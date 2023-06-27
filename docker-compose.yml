@@ -1,0 +1,55 @@
+  version: '3'
+    
+  services:
+    db:
+      image: postgres
+      environment:
+        - POSTGRES_DB=postgres
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+    web:
+      build: .
+      command: python manage.py runserver 0.0.0.0:8000
+      volumes:
+        - .:/code
+      ports:
+        - "8000:8000"
+      depends_on:
+        - db
+        - redis
+    celery:
+      build: .
+      restart: always
+      volumes:
+        - .:/code
+      command: celery -A djangoproject worker -l info
+      depends_on:
+        - db
+        - redis
+    celery-beat:
+      build: .
+      restart: always
+      volumes:
+        - .:/code
+      command: celery -A djangoproject beat -l info
+      depends_on:
+        - db
+        - redis
+
+    flower:
+      build: .
+      container_name: flower_ui
+      restart: always
+      volumes:
+        - .:/code
+      command: celery flower -A djangoproject --port=5555
+      ports:
+        - "13001:5555"
+      depends_on:
+        - db
+        - redis
+    redis:
+      image: redis:alpine
+      hostname: redis_db
+      restart: always
+
