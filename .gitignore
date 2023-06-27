@@ -5,3 +5,5 @@ db.sqlite3
 **/*.pid/**
 **/*.idea/**
 **/djangoproject/__pycache__/**
+celerybeat-schedule
+celerybeat.pid
