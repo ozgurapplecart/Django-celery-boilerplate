@@ -141,4 +141,8 @@ CELERY_BEAT_SCHEDULE = {
         "task": "djangoproject.celery.debug_task",
         "schedule": crontab(minute="*/1"),
     },
+    "fetch_mekan_com": {
+        "task": "djangoproject.celery.fetch_mekan_com",
+        "schedule": crontab(day_of_month=3),
+    },
 }
