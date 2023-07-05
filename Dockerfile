@@ -5,5 +5,6 @@ WORKDIR /code
 COPY . /code/
 RUN pip cache purge
 RUN pip install poetry==1.3.2
+RUN pip install selenium-wire
 RUN poetry config virtualenvs.create false
-RUN poetry install --no-root
+RUN poetry install --no-root --no-cache -vvv
