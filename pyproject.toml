@@ -16,6 +16,7 @@ flower = "0.9.4"
 pandas = "^2.0.3"
 numpy = "^1.25.0"
 beautifulsoup4 = "^4.12.2"
+pytest-django = "^4.5.2"
 
 
 [build-system]

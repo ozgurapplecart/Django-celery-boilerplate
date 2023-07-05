@@ -16,3 +16,4 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         print('dsds')
+        return 1
